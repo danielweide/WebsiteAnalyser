@@ -1,0 +1,14 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div  background-color ="../../matrix.jpeg">
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <img width="500" alt="Angular Logo" src="../../cyber-secu.jpg">
+</div>
+<h2>Find out if your website is secure or not below !</h2>
+
+<form (ngSubmit)="verifyWebsite()" name="myForm">
+ Your website URL: <input type="text" name="url" [(ngModel)]="url"><br>
+</form>
+<div>
