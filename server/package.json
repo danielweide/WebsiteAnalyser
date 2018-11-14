@@ -1,0 +1,32 @@
+{
+  "name": "abricot",
+  "version": "1.0.0",
+  "description": "A Node.js RESTful API to justify a text",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "keywords": [
+    "node",
+    "restful",
+    "justify",
+    "abricot"
+  ],
+  "author": "Louis Grégoire-Pollin",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-validation": "^1.0.2",
+    "joi": "^13.1.2",
+    "jsonwebtoken": "^8.1.1",
+    "morgan": "^1.9.0",
+    "redis": "^2.8.0",
+    "xhr2": "^0.1.4",
+    "xmlhttprequest": "^1.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.15.0"
+  }
+}
