@@ -9,13 +9,6 @@ import java.util.*;
  */
 public class WebAnalyser {
 
-  public static String[] reviews = {
-    "Our mark: Your site rating: A. It shows a good security level and a good implementation of HTTPS. However, it is not completely safe so keep it up !.",
-    "Our mark: Your site rating: D. It shows a patial security level due to a bad implementation of HTTPS. Most likely, the HTTPS is present but can be downgraded to an HTTP version. It would be wise to notify your IT service.",
-    "Our mark: Your site rating: F. It shows a very weak security level and no implementation of HTTPS. Using an encrypted connection is very important to ensure a secured website and to avoid any attack ! It needs to be fixed as soon as possible"
-  };
-
-
   public static int score = 0;
 	public static String evaluate(String website) throws Exception {
     score = 0;
@@ -38,9 +31,9 @@ public class WebAnalyser {
 		System.out.println("Scan completed...");
     System.out.println("Your score is: "+score);
     if(score == 2){
-      return "Our mark: Your site rating: A. It shows a good security level and a good implementation of HTTPS. However, it is not completely safe so keep it up !.";
+      return "Our mark: Your site rating: A. It shows a good security level and a good implementation of HTTPS. However, nothing is completely safe so keep it up !.";
     } else if(score == 1) {
-      return "Our mark: Your site rating: D. It shows a patial security level due to a bad implementation of HTTPS. Most likely, the HTTPS is present but can be downgraded to an HTTP version. It would be wise to notify your IT service.";
+      return "Our mark: Your site rating: D. It shows a partial security level due to a bad implementation of HTTPS. Most likely, the HTTPS is present but can be downgraded to an HTTP version. It would be wise to notify your IT service.";
     } else if(score == 0) {
       return "Our mark: Your site rating: F. It shows a very weak security level and no implementation of HTTPS. Using an encrypted connection is very important to ensure a secured website and to avoid any attack ! It needs to be fixed as soon as possible";
     }
