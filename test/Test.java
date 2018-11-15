@@ -1,12 +1,16 @@
 // package test;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+import javax.swing.JButton;
+
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.CardLayout;
+import javax.swing.BoxLayout;
 
 import javax.swing.JComboBox;
 import java.awt.Color;
@@ -39,7 +43,7 @@ class PartieFrame extends JFrame {
     private CardLayout layout;
 
     public PartieFrame(){
-      this.setTitle("Chess");
+      this.setTitle("CS3235 : Web Analyser");
       this.setExtendedState(JFrame.MAXIMIZED_BOTH);
       this.setLocationRelativeTo(null);
       this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -63,15 +67,21 @@ class PartieFrame extends JFrame {
 @SuppressWarnings("serial")
 class View extends JPanel {
   private JTextField urlField;
-  // private String mark = "";
-  private JLabel mark = new JLabel("");
+  // private String ourMark = "";
+  private JLabel ourMark = new JLabel("");
+  private JLabel desenmascaraMarkHTTP = new JLabel("");
+  private JLabel desenmascaraMarkHTTPS = new JLabel("");
 
 	View() {
 	    super();
 	    System.out.println("Page enter : Login");
 	    this.setOpaque(true);
 	    this.setBackground(new Color(150, 150, 150));
-
+      this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+      this.setAlignmentX(CENTER_ALIGNMENT);
+      this.ourMark.setPreferredSize(new Dimension(1000, 500));
+      this.desenmascaraMarkHTTP.setPreferredSize(new Dimension(1000, 500));
+      this.desenmascaraMarkHTTPS.setPreferredSize(new Dimension(1000, 500));
 	    miseAJour();
 	}
 
@@ -83,16 +93,19 @@ class View extends JPanel {
       this.add(urlField);
 	    // JComboBox playerChoice = new JComboBox(players.toArray());
 	    // this.add(playerChoice);
-      this.add(this.mark);
-
-	    SubmitButton button = new SubmitButton(this);
-	    this.add(button);
+      SubmitButton button = new SubmitButton(this);
+      this.add(button);
+      this.add(this.ourMark);
+      this.add(this.desenmascaraMarkHTTP);
+      this.add(this.desenmascaraMarkHTTPS);
 	    this.updateUI();
 	}
 
   public void evaluateURL(){
     try {
-      this.mark.setText( WebAnalyser.evaluate(urlField.getText()));
+      this.ourMark.setText( WebAnalyser.evaluate(urlField.getText()));
+      this.desenmascaraMarkHTTP.setText( WebAnalyser.getHTTPSecAwareness(urlField.getText()));
+      this.desenmascaraMarkHTTPS.setText( WebAnalyser.getHTTPSSecAwareness(urlField.getText()));
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "Une erreur est survenue dans le format de la date ", "Erreur!",
 					JOptionPane.ERROR_MESSAGE);
